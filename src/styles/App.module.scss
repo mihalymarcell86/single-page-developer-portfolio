@@ -1,0 +1,193 @@
+@use "./utilities/global" as *;
+
+.header {
+  text-align: center;
+  height: rem(363px);
+  margin-bottom: rem(40px);
+}
+
+.logo {
+  color: color(white);
+  @include setFont(rem(24px), 32px, 700);
+  letter-spacing: -0.333333px;
+  margin-block: em(20px, 24px);
+}
+
+.social_media {
+  display: flex;
+  gap: rem(25.6px);
+  justify-content: center;
+  align-items: center;
+  max-height: rem(19.2px);
+  font-size: 0;
+  position: relative;
+}
+
+.icon_github,
+.icon_linkedin {
+  height: rem(19.2px);
+}
+
+.icon_fm {
+  height: rem(17.6px);
+}
+
+.icon_twitter {
+  height: rem(15.14px);
+}
+
+.hero_img {
+  width: rem(174px);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50%;
+  z-index: -1;
+}
+
+.introduction {
+  margin-inline: rem(16px);
+  text-align: center;
+  margin-bottom: rem(80px);
+  h1 {
+    @include setFont(rem(40px), 40px, 700);
+    letter-spacing: -1.13636px;
+    color: color(white);
+    margin-bottom: em(24px, 40px);
+  }
+  em {
+    font-style: normal;
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: color(eucalyptus);
+      position: absolute;
+      bottom: rem(2px);
+      left: 0;
+    }
+  }
+  p {
+    @include setFont(rem(16px), 26px, 500);
+    margin-bottom: em(24px, 16px);
+  }
+}
+
+.experience {
+  border-top: 1px solid color(white);
+  border-bottom: 1px solid color(white);
+  padding-block: rem(40px);
+  margin-inline: rem(16px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  align-items: center;
+  text-align: center;
+  margin-bottom: rem(80px);
+  position: relative;
+
+  &::after {
+    content: url("../assets/images/pattern-rings.svg");
+    position: absolute;
+    bottom: -71px;
+    left: 173px;
+  }
+
+  h3 {
+    @include setFont(rem(32px), 40px, 700);
+    letter-spacing: -1px;
+    color: color(white);
+    margin-bottom: em(1px, 32px);
+  }
+
+  p {
+    @include setFont(rem(16px), 26px, 500);
+  }
+}
+
+.projects {
+  margin-inline: rem(16px);
+  margin-bottom: rem(80px);
+
+  h2 {
+    @include setFont(rem(40px), 40px, 700);
+    letter-spacing: -1.14px;
+    color: color(white);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(40px);
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40px);
+  }
+}
+
+.contact {
+  background: {
+    color: color(raisin-black);
+    image: url("../assets/images/pattern-rings.svg");
+    repeat: no-repeat;
+    position: top 428px left -359px;
+  }
+  padding: rem(60px) rem(16px) 0;
+  h2 {
+    text-align: center;
+    color: color(white);
+    @include setFont(rem(40px), 40px, 700);
+    letter-spacing: -1.14px;
+    margin-bottom: em(20px, 40px);
+  }
+  p {
+    @include setFont(rem(16px), 26px, 500);
+    text-align: center;
+    margin-bottom: rem(50px);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: rem(87px);
+    border-bottom: 1px solid color(white);
+    input,
+    textarea {
+      border: 0;
+      background-color: transparent;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+      padding-left: rem(24px);
+      margin-bottom: rem(32px);
+      padding-bottom: rem(16px);
+      color: hsla(0, 0%, 100%, 0.5);
+      font-family: inherit;
+      @include setFont(rem(16px), 26px, 500);
+      letter-spacing: -0.22px;
+      resize: none;
+      &:focus,
+      &:active {
+        outline: 0;
+      }
+      &::placeholder {
+        text-transform: uppercase;
+      }
+    }
+    textarea {
+      min-height: rem(64px);
+    }
+    button {
+      border: 0;
+      background-color: transparent;
+      text-align: right;
+      font-family: inherit;
+    }
+  }
+}
+
+.footer {
+  background-color: color(raisin-black);
+  padding: rem(19px) 0px rem(60px);
+  text-align: center;
+}

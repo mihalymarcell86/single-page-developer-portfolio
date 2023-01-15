@@ -1,0 +1,12 @@
+@use "./utilities/global" as *;
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+  color: color(white);
+  @include setFont(rem(16px), 26px, 700);
+  text-transform: uppercase;
+  letter-spacing: 2.28571px;
+  height: rem(36px);
+  border-bottom: 2px solid color(eucalyptus);
+}

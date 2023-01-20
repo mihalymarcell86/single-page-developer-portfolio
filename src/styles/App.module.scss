@@ -267,11 +267,11 @@ picture {
     color: color(raisin-black);
     image: url("../assets/images/pattern-rings.svg");
     repeat: no-repeat;
-    position: top 428px left -359px;
+    position: bottom 97px left -359px;
   }
   padding: rem(60px) rem(16px) rem(87px);
   @media (min-width: $w-tablet) {
-    background-position: top 547px left -368px;
+    background-position: bottom 27px left -368px;
     padding: rem(60px) rem(162px) rem(92px);
   }
 
@@ -323,7 +323,8 @@ picture {
       }
     }
     textarea {
-      min-height: rem(64px);
+      // min-height: rem(64px);
+      min-height: rem(107px);
     }
     button {
       border: 0;

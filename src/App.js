@@ -7,7 +7,8 @@ import ghIcon from "./assets/images/icon-github.svg";
 import liIcon from "./assets/images/icon-linkedin.svg";
 import tIcon from "./assets/images/icon-twitter.svg";
 
-import heroImg from "./assets/images/image-profile-mobile.webp";
+import heroImgMobile from "./assets/images/image-profile-mobile.webp";
+import heroImgTablet from "./assets/images/image-profile-tablet.webp";
 
 import thumb1 from "./assets/images/thumbnail-project-1-small.webp";
 import thumb2 from "./assets/images/thumbnail-project-2-small.webp";
@@ -39,17 +40,21 @@ function App() {
             <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
           </a>
         </menu>
-        <img
-          src={heroImg}
-          alt="Adam Keyes headshot"
-          type="img/webp"
-          className={scss.hero_img}
-        />
+        <picture>
+          <source srcSet={heroImgTablet} media="(min-width: 768px)" />
+          <img
+            src={heroImgMobile}
+            alt="Adam Keyes headshot"
+            type="img/webp"
+            className={scss.hero_img}
+          />
+        </picture>
       </header>
       <main>
         <section className={scss.introduction}>
           <h1>
-            Nice to meet you! I'm <em>Adam Keyes</em>.
+            Nice to <br className={scss.linebreak} />
+            meet you! I'm <em>Adam Keyes</em>.
           </h1>
           <p>
             Based in the UK, I'm a front-end developer passionate about building
@@ -67,7 +72,7 @@ function App() {
             <p>4 Years Experience</p>
           </div>
           <div>
-            <h3>JavaScript</h3>
+            <h3>Javascript</h3>
             <p>4 Years Experience</p>
           </div>
           <div>
@@ -138,25 +143,31 @@ function App() {
         </section>
       </main>
       <footer className={scss.footer}>
-        <p className={scss.logo}>adamkeyes</p>
-        <menu className={scss.social_media}>
-          <a href="https://www.github.com" target="_blank" rel="noreferrer">
-            <img src={ghIcon} alt="Github" className={scss.icon_github} />
-          </a>
-          <a
-            href="https://www.frontendmentor.io"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={fmIcon} alt="Frontend Mentor" className={scss.icon_fm} />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-            <img src={liIcon} alt="LinkedIn" className={scss.icon_linkedin} />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-            <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
-          </a>
-        </menu>
+        <div>
+          <p className={scss.logo}>adamkeyes</p>
+          <menu className={scss.social_media}>
+            <a href="https://www.github.com" target="_blank" rel="noreferrer">
+              <img src={ghIcon} alt="Github" className={scss.icon_github} />
+            </a>
+            <a
+              href="https://www.frontendmentor.io"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={fmIcon}
+                alt="Frontend Mentor"
+                className={scss.icon_fm}
+              />
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              <img src={liIcon} alt="LinkedIn" className={scss.icon_linkedin} />
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
+              <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
+            </a>
+          </menu>
+        </div>
       </footer>
     </>
   );

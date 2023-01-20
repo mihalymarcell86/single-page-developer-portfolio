@@ -24,12 +24,6 @@
 
 body {
   background-color: color(chinese-black);
-  background: {
-    image: url("../assets/images/pattern-rings.svg"),
-      url("../assets/images/pattern-circle.svg");
-    repeat: no-repeat no-repeat;
-    position: -342px 124px, 311px 254px;
-  }
   color: color(light-silver);
   font-family: "Space Grotesk";
   max-width: 100vw;

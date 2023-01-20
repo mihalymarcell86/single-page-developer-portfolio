@@ -3,14 +3,29 @@
 .header {
   text-align: center;
   height: rem(363px);
+  margin-top: rem(20px);
   margin-bottom: rem(40px);
+  @media (min-width: $w-tablet) {
+    height: auto;
+    margin-inline: rem(30px);
+    margin-top: rem(29px);
+    margin-bottom: rem(80px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .logo {
   color: color(white);
   @include setFont(rem(24px), 32px, 700);
   letter-spacing: -0.333333px;
-  margin-block: em(20px, 24px);
+  margin-bottom: em(20px, 24px);
+  @media (min-width: $w-tablet) {
+    margin-bottom: 0px;
+    font-size: rem(32px);
+    letter-spacing: -0.44px;
+  }
 }
 
 .social_media {
@@ -18,46 +33,114 @@
   gap: rem(25.6px);
   justify-content: center;
   align-items: center;
-  max-height: rem(19.2px);
+  height: rem(20px);
   font-size: 0;
-  position: relative;
+  @media (min-width: $w-tablet) {
+    height: rem(25px);
+    gap: rem(32px);
+  }
 }
 
 .icon_github,
 .icon_linkedin {
   height: rem(19.2px);
+  @media (min-width: $w-tablet) {
+    height: rem(24px);
+  }
 }
 
 .icon_fm {
   height: rem(17.6px);
+  @media (min-width: $w-tablet) {
+    height: rem(22px);
+  }
 }
 
 .icon_twitter {
   height: rem(15.14px);
+  @media (min-width: $w-tablet) {
+    height: rem(18.93px);
+  }
 }
 
-.hero_img {
-  width: rem(174px);
+picture {
   position: absolute;
   top: 0;
   left: 50%;
   translate: -50%;
   z-index: -1;
+  @media (min-width: $w-tablet) {
+    right: 0;
+    left: auto;
+    translate: none;
+  }
+}
+
+.hero_img {
+  width: rem(174px);
+  @media (min-width: $w-tablet) {
+    width: rem(322px);
+  }
 }
 
 .introduction {
   margin-inline: rem(16px);
   text-align: center;
   margin-bottom: rem(80px);
+  @media (min-width: $w-tablet) {
+    margin-left: rem(32px);
+    margin-bottom: rem(60px);
+    text-align: left;
+    max-width: rem(445px);
+  }
+  &::before {
+    content: url("../assets/images/pattern-rings.svg");
+    position: absolute;
+    top: 124px;
+    left: -342px;
+    z-index: -2;
+    @media (min-width: $w-tablet) {
+      top: 86px;
+      left: -265px;
+    }
+  }
+  &::after {
+    content: url("../assets/images/pattern-circle.svg");
+    position: absolute;
+    top: 254px;
+    right: -65px;
+    @media (min-width: $w-tablet) {
+      top: 469px;
+      right: -63px;
+    }
+  }
+
   h1 {
     @include setFont(rem(40px), 40px, 700);
     letter-spacing: -1.13636px;
     color: color(white);
     margin-bottom: em(24px, 40px);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(72px), 72px);
+      letter-spacing: -2.05px;
+      margin-bottom: em(66px, 72px);
+    }
   }
+
+  .linebreak {
+    display: none;
+    @media (min-width: $w-tablet) {
+      display: block;
+    }
+  }
+
   em {
     font-style: normal;
     position: relative;
+    @media (min-width: $w-tablet) {
+      display: inline-block;
+      margin-top: rem(11px);
+    }
     &::after {
       content: "";
       width: 100%;
@@ -66,11 +149,19 @@
       position: absolute;
       bottom: rem(2px);
       left: 0;
+      @media (min-width: $w-tablet) {
+        height: 6px;
+        bottom: rem(-5px);
+      }
     }
   }
   p {
     @include setFont(rem(16px), 26px, 500);
     margin-bottom: em(24px, 16px);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(18px), 28px);
+      margin-bottom: em(34px, 18px);
+    }
   }
 }
 
@@ -87,11 +178,28 @@
   margin-bottom: rem(80px);
   position: relative;
 
+  @media (min-width: $w-tablet) {
+    margin-inline: rem(30px);
+    margin-bottom: rem(50px);
+    padding-block: rem(50px);
+    padding-inline: rem(2px) rem(9px);
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    row-gap: rem(52px);
+    column-gap: rem(7px);
+  }
+
   &::after {
     content: url("../assets/images/pattern-rings.svg");
     position: absolute;
     bottom: -71px;
     left: 173px;
+    @media (min-width: $w-tablet) {
+      left: 570px;
+      bottom: -15px;
+    }
   }
 
   h3 {
@@ -99,32 +207,58 @@
     letter-spacing: -1px;
     color: color(white);
     margin-bottom: em(1px, 32px);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(48px), 56px);
+      letter-spacing: -1.5px;
+      margin-bottom: em(14px, 48px);
+    }
   }
 
   p {
     @include setFont(rem(16px), 26px, 500);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(18px), 28px);
+    }
   }
 }
 
 .projects {
   margin-inline: rem(16px);
   margin-bottom: rem(80px);
+  @media (min-width: $w-tablet) {
+    margin-inline: rem(30px) rem(30px);
+    margin-bottom: rem(100px);
+  }
 
   h2 {
     @include setFont(rem(40px), 40px, 700);
     letter-spacing: -1.14px;
     color: color(white);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(72px), 72px);
+      letter-spacing: -2.05px;
+    }
   }
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: rem(40px);
+    @media (min-width: $w-tablet) {
+      margin-left: rem(2px);
+      margin-bottom: rem(60px);
+    }
   }
   & > div {
     display: flex;
     flex-direction: column;
     gap: rem(40px);
+    @media (min-width: $w-tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(24px);
+      row-gap: rem(60px);
+    }
   }
 }
 
@@ -135,24 +269,38 @@
     repeat: no-repeat;
     position: top 428px left -359px;
   }
-  padding: rem(60px) rem(16px) 0;
+  padding: rem(60px) rem(16px) rem(87px);
+  @media (min-width: $w-tablet) {
+    background-position: top 547px left -368px;
+    padding: rem(60px) rem(162px) rem(92px);
+  }
+
   h2 {
     text-align: center;
     color: color(white);
     @include setFont(rem(40px), 40px, 700);
     letter-spacing: -1.14px;
     margin-bottom: em(20px, 40px);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(72px), 72px);
+      letter-spacing: -2.05px;
+      margin-bottom: em(20px, 72px);
+    }
   }
   p {
     @include setFont(rem(16px), 26px, 500);
     text-align: center;
-    margin-bottom: rem(50px);
+    margin-bottom: em(50px, 16px);
+    @media (min-width: $w-tablet) {
+      @include setFont(rem(18px), 28px);
+      margin-bottom: em(48px, 18px);
+    }
   }
+
   form {
     display: flex;
     flex-direction: column;
-    padding-bottom: rem(87px);
-    border-bottom: 1px solid color(white);
+
     input,
     textarea {
       border: 0;
@@ -188,6 +336,19 @@
 
 .footer {
   background-color: color(raisin-black);
-  padding: rem(19px) 0px rem(60px);
+  padding: 0 rem(16px) rem(60px);
   text-align: center;
+  @media (min-width: $w-tablet) {
+    padding: 0 rem(30px) rem(40px);
+  }
+  & > div {
+    padding-top: rem(39px);
+    border-top: 1px solid color(white);
+    @media (min-width: $w-tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: rem(19px);
+    }
+  }
 }

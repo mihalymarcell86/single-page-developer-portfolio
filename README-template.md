@@ -73,6 +73,8 @@ It is impossible to define multiple gap sizes within a grid.
 
 I learned how to dynamically import images with `require()`.
 
+I tried to implement the hover states on the project thumbnails using CSS only, using pseudo-elements and the general sibling combinator, but unfortunately the result turned out to be very laggy, and the hover states of the links on the overlay didn't show. As much as I tried to avoid code duplication, I had to recreate the overlays in new components, to make them work smoothly.
+
 ### Continued development
 
 Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.

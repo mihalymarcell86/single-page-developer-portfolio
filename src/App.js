@@ -2,10 +2,10 @@ import scss from "./styles/App.module.scss";
 import Link from "./components/UI/Link";
 import Project from "./components/Project";
 
-import fmIcon from "./assets/images/icon-frontend-mentor.svg";
-import ghIcon from "./assets/images/icon-github.svg";
-import liIcon from "./assets/images/icon-linkedin.svg";
-import tIcon from "./assets/images/icon-twitter.svg";
+import FMIcon from "./components/Icons/IconFM";
+import GHIcon from "./components/Icons/IconGithub";
+import LIIcon from "./components/Icons/LinkedIn";
+import TIcon from "./components/Icons/IconTwitter";
 
 import heroImgMobile from "./assets/images/image-profile-mobile.webp";
 import heroImgTablet from "./assets/images/image-profile-tablet.webp";
@@ -17,22 +17,10 @@ function App() {
       <header className={scss.header}>
         <p className={scss.logo}>adamkeyes</p>
         <menu className={scss.social_media}>
-          <a href="https://www.github.com" target="_blank" rel="noreferrer">
-            <img src={ghIcon} alt="Github" className={scss.icon_github} />
-          </a>
-          <a
-            href="https://www.frontendmentor.io"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={fmIcon} alt="Frontend Mentor" className={scss.icon_fm} />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-            <img src={liIcon} alt="LinkedIn" className={scss.icon_linkedin} />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-            <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
-          </a>
+          <GHIcon />
+          <FMIcon />
+          <LIIcon />
+          <TIcon />
         </menu>
         <picture className={scss.hero_picture}>
           <source srcSet={heroImgDesktop} media="(min-width: 1440px)" />
@@ -129,7 +117,7 @@ function App() {
           <form>
             <input type="text" placeholder="Name"></input>
             <input type="email" placeholder="Email"></input>
-            <textarea placeholder="Message"></textarea>
+            <textarea placeholder="Message" spellCheck={false}></textarea>
             <button type="button">
               <Link href="#">Send message</Link>
             </button>
@@ -140,26 +128,10 @@ function App() {
         <div>
           <p className={scss.logo}>adamkeyes</p>
           <menu className={scss.social_media}>
-            <a href="https://www.github.com" target="_blank" rel="noreferrer">
-              <img src={ghIcon} alt="Github" className={scss.icon_github} />
-            </a>
-            <a
-              href="https://www.frontendmentor.io"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src={fmIcon}
-                alt="Frontend Mentor"
-                className={scss.icon_fm}
-              />
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-              <img src={liIcon} alt="LinkedIn" className={scss.icon_linkedin} />
-            </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-              <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
-            </a>
+            <GHIcon />
+            <FMIcon />
+            <LIIcon />
+            <TIcon />
           </menu>
         </div>
       </footer>

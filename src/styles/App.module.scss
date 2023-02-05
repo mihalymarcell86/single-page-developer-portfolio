@@ -47,28 +47,6 @@
   }
 }
 
-.icon_github,
-.icon_linkedin {
-  height: rem(19.2px);
-  @media (min-width: $w-tablet) {
-    height: rem(24px);
-  }
-}
-
-.icon_fm {
-  height: rem(17.6px);
-  @media (min-width: $w-tablet) {
-    height: rem(22px);
-  }
-}
-
-.icon_twitter {
-  height: rem(15.14px);
-  @media (min-width: $w-tablet) {
-    height: rem(18.93px);
-  }
-}
-
 .hero_picture {
   position: absolute;
   top: 0;

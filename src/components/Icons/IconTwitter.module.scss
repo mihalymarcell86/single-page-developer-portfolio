@@ -1,0 +1,14 @@
+@use "../../styles/utilities/global" as *;
+
+.container {
+  width: rem(18.62px);
+  height: rem(15.14px);
+  @media (min-width: $w-tablet) {
+    width: rem(23.28px);
+    height: rem(18.93px);
+  }
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -67,6 +67,11 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### What I learned
 
 I ran into some difficulty trying to customize the underlines using the `text-decoration` subproperties. I didn't find a rule that would bring the line in front of the text, as shown in the design, so in the introduction section, I created an absolutely positioned pseudo-element instead. While styling links, `text-underline-offset` looked promising, but unfortunately it doesn't affect the document flow, so I decided to use `border-bottom`.
+(Edit: the design is inconsistent, in the desktop layout the underline hides behind the descenders.)
+
+It is impossible to define multiple gap sizes within a grid.
+
+I learned how to dynamically import images with `require()`.
 
 ### Continued development
 

@@ -13,6 +13,9 @@
 
 .langs {
   margin-bottom: rem(20px);
+  @media (min-width: $w-desktop) {
+    margin-bottom: 0;
+  }
 }
 
 .lang {
@@ -26,6 +29,11 @@
   }
 }
 
-.view > a:first-of-type {
-  margin-right: rem(30px);
+.view {
+  & > a:first-of-type {
+    margin-right: rem(30px);
+  }
+  @media (min-width: $w-desktop) {
+    display: none;
+  }
 }

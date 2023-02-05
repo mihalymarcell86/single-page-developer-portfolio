@@ -14,6 +14,12 @@
     justify-content: space-between;
     align-items: center;
   }
+  @media (min-width: $w-desktop) {
+    margin-top: rem(39px);
+    margin-bottom: rem(127px);
+    margin-left: rem(165px);
+    margin-right: rem(194.51px);
+  }
 }
 
 .logo {
@@ -63,7 +69,7 @@
   }
 }
 
-picture {
+.hero_picture {
   position: absolute;
   top: 0;
   left: 50%;
@@ -74,12 +80,18 @@ picture {
     left: auto;
     translate: none;
   }
+  @media (min-width: $w-desktop) {
+    right: rem(165px);
+  }
 }
 
 .hero_img {
   width: rem(174px);
   @media (min-width: $w-tablet) {
     width: rem(322px);
+  }
+  @media (min-width: $w-desktop) {
+    width: rem(445px);
   }
 }
 
@@ -93,6 +105,12 @@ picture {
     text-align: left;
     max-width: rem(445px);
   }
+  @media (min-width: $w-desktop) {
+    margin-left: rem(165px);
+    margin-bottom: rem(219px);
+    margin-right: 0;
+    max-width: rem(706px);
+  }
   &::before {
     content: url("../assets/images/pattern-rings.svg");
     position: absolute;
@@ -103,6 +121,10 @@ picture {
       top: 86px;
       left: -265px;
     }
+    @media (min-width: $w-desktop) {
+      top: 133px;
+      left: -100px;
+    }
   }
   &::after {
     content: url("../assets/images/pattern-circle.svg");
@@ -112,6 +134,10 @@ picture {
     @media (min-width: $w-tablet) {
       top: 469px;
       right: -63px;
+    }
+    @media (min-width: $w-desktop) {
+      top: 521px;
+      right: 545px;
     }
   }
 
@@ -125,11 +151,16 @@ picture {
       letter-spacing: -2.05px;
       margin-bottom: em(66px, 72px);
     }
+    @media (min-width: $w-desktop) {
+      @include setFont(rem(88px), 88px);
+      letter-spacing: -2.5px;
+      margin-bottom: em(43px, 88px);
+    }
   }
 
   .linebreak {
     display: none;
-    @media (min-width: $w-tablet) {
+    @media (min-width: $w-tablet) AND (max-width: 1439px) {
       display: block;
     }
   }
@@ -140,6 +171,9 @@ picture {
     @media (min-width: $w-tablet) {
       display: inline-block;
       margin-top: rem(11px);
+    }
+    @media (min-width: $w-desktop) {
+      margin-top: 0;
     }
     &::after {
       content: "";
@@ -153,6 +187,10 @@ picture {
         height: 6px;
         bottom: rem(-5px);
       }
+      @media (min-width: $w-desktop) {
+        z-index: -1;
+        bottom: rem(-6px);
+      }
     }
   }
   p {
@@ -161,6 +199,10 @@ picture {
     @media (min-width: $w-tablet) {
       @include setFont(rem(18px), 28px);
       margin-bottom: em(34px, 18px);
+    }
+    @media (min-width: $w-desktop) {
+      margin-bottom: em(66px, 18px);
+      max-width: rem(445px);
     }
   }
 }
@@ -180,8 +222,9 @@ picture {
 
   @media (min-width: $w-tablet) {
     margin-inline: rem(30px);
-    margin-bottom: rem(50px);
-    padding-block: rem(50px);
+    margin-bottom: rem(100px);
+    padding-top: rem(50px);
+    padding-bottom: 0;
     padding-inline: rem(2px) rem(9px);
     border-bottom: none;
     display: grid;
@@ -191,14 +234,31 @@ picture {
     column-gap: rem(7px);
   }
 
+  @media (min-width: $w-desktop) {
+    margin-inline: rem(165px);
+    margin-bottom: rem(140px);
+    padding-top: rem(72px);
+    padding-inline: rem(5px);
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: rem(58px);
+    column-gap: rem(30px);
+    & > div:nth-child(3n) {
+      padding-left: rem(5px);
+    }
+  }
+
   &::after {
     content: url("../assets/images/pattern-rings.svg");
     position: absolute;
     bottom: -71px;
-    left: 173px;
+    right: -358px;
     @media (min-width: $w-tablet) {
-      left: 570px;
-      bottom: -15px;
+      right: -362px;
+      bottom: -65px;
+    }
+    @media (min-width: $w-desktop) {
+      right: -404px;
+      bottom: -55px;
     }
   }
 
@@ -229,6 +289,10 @@ picture {
     margin-inline: rem(30px) rem(30px);
     margin-bottom: rem(100px);
   }
+  @media (min-width: $w-desktop) {
+    margin-inline: rem(165px);
+    margin-bottom: rem(139px);
+  }
 
   h2 {
     @include setFont(rem(40px), 40px, 700);
@@ -238,7 +302,12 @@ picture {
       @include setFont(rem(72px), 72px);
       letter-spacing: -2.05px;
     }
+    @media (min-width: $w-desktop) {
+      @include setFont(rem(88px), 88px);
+      letter-spacing: -2.5px;
+    }
   }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -247,6 +316,10 @@ picture {
     @media (min-width: $w-tablet) {
       margin-left: rem(2px);
       margin-bottom: rem(60px);
+    }
+    @media (min-width: $w-desktop) {
+      margin-left: 0;
+      margin-bottom: rem(80px);
     }
   }
   & > div {
@@ -258,6 +331,10 @@ picture {
       grid-template-columns: repeat(2, 1fr);
       column-gap: rem(24px);
       row-gap: rem(60px);
+    }
+    @media (min-width: $w-desktop) {
+      column-gap: rem(30px);
+      row-gap: rem(69px);
     }
   }
 }
@@ -274,6 +351,13 @@ picture {
     background-position: bottom 27px left -368px;
     padding: rem(60px) rem(162px) rem(92px);
   }
+  @media (min-width: $w-desktop) {
+    background-position: bottom 47px left -205px;
+    padding: rem(84px) rem(165px) rem(92px);
+    display: flex;
+    justify-content: space-between;
+    gap: rem(220px);
+  }
 
   h2 {
     text-align: center;
@@ -286,6 +370,12 @@ picture {
       letter-spacing: -2.05px;
       margin-bottom: em(20px, 72px);
     }
+    @media (min-width: $w-desktop) {
+      @include setFont(rem(88px), 88px);
+      letter-spacing: -2.5px;
+      margin-bottom: em(36px, 88px);
+      text-align: left;
+    }
   }
   p {
     @include setFont(rem(16px), 26px, 500);
@@ -295,11 +385,21 @@ picture {
       @include setFont(rem(18px), 28px);
       margin-bottom: em(48px, 18px);
     }
+    @media (min-width: $w-desktop) {
+      @include setFont(rem(18px), 28px);
+      margin-bottom: 0;
+      text-align: left;
+      max-width: rem(445px);
+    }
   }
 
   form {
     display: flex;
     flex-direction: column;
+
+    @media (min-width: $w-desktop) {
+      width: div(445, 1440) * 100vw;
+    }
 
     input,
     textarea {
@@ -323,7 +423,6 @@ picture {
       }
     }
     textarea {
-      // min-height: rem(64px);
       min-height: rem(107px);
     }
     button {
@@ -342,6 +441,9 @@ picture {
   @media (min-width: $w-tablet) {
     padding: 0 rem(30px) rem(40px);
   }
+  @media (min-width: $w-desktop) {
+    padding: 0 rem(165px) rem(92px);
+  }
   & > div {
     padding-top: rem(39px);
     border-top: 1px solid color(white);
@@ -349,7 +451,10 @@ picture {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: rem(19px);
+      padding-top: rem(30px);
+    }
+    @media (min-width: $w-desktop) {
+      padding-top: rem(47px);
     }
   }
 }

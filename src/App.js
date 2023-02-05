@@ -9,13 +9,7 @@ import tIcon from "./assets/images/icon-twitter.svg";
 
 import heroImgMobile from "./assets/images/image-profile-mobile.webp";
 import heroImgTablet from "./assets/images/image-profile-tablet.webp";
-
-import thumb1 from "./assets/images/thumbnail-project-1-small.webp";
-import thumb2 from "./assets/images/thumbnail-project-2-small.webp";
-import thumb3 from "./assets/images/thumbnail-project-3-small.webp";
-import thumb4 from "./assets/images/thumbnail-project-4-small.webp";
-import thumb5 from "./assets/images/thumbnail-project-5-small.webp";
-import thumb6 from "./assets/images/thumbnail-project-6-small.webp";
+import heroImgDesktop from "./assets/images/image-profile-desktop.webp";
 
 function App() {
   return (
@@ -40,7 +34,8 @@ function App() {
             <img src={tIcon} alt="Twitter" className={scss.icon_twitter} />
           </a>
         </menu>
-        <picture>
+        <picture className={scss.hero_picture}>
+          <source srcSet={heroImgDesktop} media="(min-width: 1440px)" />
           <source srcSet={heroImgTablet} media="(min-width: 768px)" />
           <img
             src={heroImgMobile}
@@ -94,44 +89,43 @@ function App() {
             <Link href="#contact">Contact me</Link>
           </header>
           <div>
+            <Project nr={1} title="Design portfolio" langs="HTML CSS"></Project>
             <Project
-              img={thumb1}
-              title="Design portfolio"
-              langs="HTML CSS"
-            ></Project>
-            <Project
-              img={thumb2}
+              nr={2}
               title="E-learning landing page"
               langs="HTML CSS"
             ></Project>
             <Project
-              img={thumb3}
+              nr={3}
               title="Todo web app"
               langs="HTML CSS JavaScript"
             ></Project>
             <Project
-              img={thumb4}
+              nr={4}
               title="Entertainment web app"
               langs="HTML CSS JavaScript"
             ></Project>
             <Project
-              img={thumb5}
+              nr={5}
               title="Memory Game"
               langs="HTML CSS JavaScript"
             ></Project>
             <Project
-              img={thumb6}
+              nr={6}
               title="Art gallery showcase"
               langs="HTML CSS JavaScript"
             ></Project>
           </div>
         </section>
         <section className={scss.contact}>
-          <h2>Contact</h2>
-          <p>
-            I would love to hear about your project and how I could help. Please
-            fill in the form, and I’ll get back to you as soon as possible.
-          </p>
+          <div>
+            <h2>Contact</h2>
+            <p>
+              I would love to hear about your project and how I could help.
+              Please fill in the form, and I’ll get back to you as soon as
+              possible.
+            </p>
+          </div>
           <form>
             <input type="text" placeholder="Name"></input>
             <input type="email" placeholder="Email"></input>

@@ -5,9 +5,9 @@
   height: rem(363px);
   margin-top: rem(20px);
   margin-bottom: rem(40px);
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     height: auto;
-    margin-inline: rem(30px);
+    margin-inline: lerp_max($w-tablet, rem(30px), $w-desktop, rem(165px));
     margin-top: rem(29px);
     margin-bottom: rem(80px);
     display: flex;
@@ -27,7 +27,7 @@
   @include setFont(rem(24px), 32px, 700);
   letter-spacing: -0.333333px;
   margin-bottom: em(20px, 24px);
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     margin-bottom: 0px;
     font-size: rem(32px);
     letter-spacing: -0.44px;
@@ -41,7 +41,7 @@
   align-items: center;
   height: rem(20px);
   font-size: 0;
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     height: rem(25px);
     gap: rem(32px);
   }
@@ -53,8 +53,8 @@
   left: 50%;
   translate: -50%;
   z-index: -1;
-  @media (min-width: $w-tablet) {
-    right: 0;
+  @media (min-width: $bp1) {
+    right: lerp_max($w-tablet, 0rem, $w-desktop, rem(165px));
     left: auto;
     translate: none;
   }
@@ -65,7 +65,7 @@
 
 .hero_img {
   width: rem(174px);
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     width: rem(322px);
   }
   @media (min-width: $w-desktop) {
@@ -77,17 +77,19 @@
   margin-inline: rem(16px);
   text-align: center;
   margin-bottom: rem(80px);
-  @media (min-width: $w-tablet) {
-    margin-left: rem(32px);
+  @media (min-width: $bp1) {
+    margin-left: lerp_max($w-tablet, rem(32px), $w-desktop, rem(165px));
     margin-bottom: rem(60px);
     text-align: left;
-    max-width: rem(445px);
+    max-width: lerp($bp1, rem(350px), $w-tablet, rem(445px));
+    min-height: rem(447px);
   }
   @media (min-width: $w-desktop) {
     margin-left: rem(165px);
     margin-bottom: rem(219px);
     margin-right: 0;
     max-width: rem(706px);
+    min-height: auto;
   }
   &::before {
     content: url("../assets/images/pattern-rings.svg");
@@ -95,7 +97,7 @@
     top: 124px;
     left: -342px;
     z-index: -2;
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       top: 86px;
       left: -265px;
     }
@@ -109,7 +111,7 @@
     position: absolute;
     top: 254px;
     right: -65px;
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       top: 469px;
       right: -63px;
     }
@@ -120,13 +122,17 @@
   }
 
   h1 {
-    @include setFont(rem(40px), 40px, 700);
+    @include setFont(rem(40px), 1em, 700);
     letter-spacing: -1.13636px;
     color: color(white);
+    margin-inline: auto; //!
     margin-bottom: em(24px, 40px);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(72px), 72px);
+    max-width: rem(350px); //!
+
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(50px), $w-tablet, rem(72px));
       letter-spacing: -2.05px;
+      max-width: none; //!
       margin-bottom: em(66px, 72px);
     }
     @media (min-width: $w-desktop) {
@@ -138,7 +144,7 @@
 
   .linebreak {
     display: none;
-    @media (min-width: $w-tablet) AND (max-width: 1439px) {
+    @media (min-width: $bp1) AND (max-width: 1439px) {
       display: block;
     }
   }
@@ -146,9 +152,9 @@
   em {
     font-style: normal;
     position: relative;
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       display: inline-block;
-      margin-top: rem(11px);
+      margin-top: em(11px, 72px);
     }
     @media (min-width: $w-desktop) {
       margin-top: 0;
@@ -161,9 +167,9 @@
       position: absolute;
       bottom: rem(2px);
       left: 0;
-      @media (min-width: $w-tablet) {
-        height: 6px;
+      @media (min-width: $bp1) {
         bottom: rem(-5px);
+        height: lerp_min($bp1, 5px, $w-tablet, 6px);
       }
       @media (min-width: $w-desktop) {
         z-index: -1;
@@ -174,11 +180,16 @@
   p {
     @include setFont(rem(16px), 26px, 500);
     margin-bottom: em(24px, 16px);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(18px), 28px);
+    max-width: rem(500px); //!
+    margin-inline: auto; //!
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
+      line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
+      max-width: none;
       margin-bottom: em(34px, 18px);
     }
     @media (min-width: $w-desktop) {
+      margin-inline: 0; //!
       margin-bottom: em(66px, 18px);
       max-width: rem(445px);
     }
@@ -189,7 +200,7 @@
   border-top: 1px solid color(white);
   border-bottom: 1px solid color(white);
   padding-block: rem(40px);
-  margin-inline: rem(16px);
+  margin-inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
   display: flex;
   flex-direction: column;
   gap: rem(24px);
@@ -198,7 +209,7 @@
   margin-bottom: rem(80px);
   position: relative;
 
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     margin-inline: rem(30px);
     margin-bottom: rem(100px);
     padding-top: rem(50px);
@@ -230,7 +241,7 @@
     position: absolute;
     bottom: -71px;
     right: -358px;
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       right: -362px;
       bottom: -65px;
     }
@@ -245,25 +256,27 @@
     letter-spacing: -1px;
     color: color(white);
     margin-bottom: em(1px, 32px);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(48px), 56px);
-      letter-spacing: -1.5px;
-      margin-bottom: em(14px, 48px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(32px), $w-tablet, rem(48px));
+      line-height: lerp_min($bp1, 40px, $w-tablet, 56px);
+      letter-spacing: lerp_min($bp1, -1px, $w-tablet, -1.5px);
+      margin-bottom: lerp_min($bp1, rem(1px), $w-tablet, rem(14px));
     }
   }
 
   p {
     @include setFont(rem(16px), 26px, 500);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(18px), 28px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
+      line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
     }
   }
 }
 
 .projects {
-  margin-inline: rem(16px);
+  margin-inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
   margin-bottom: rem(80px);
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     margin-inline: rem(30px) rem(30px);
     margin-bottom: rem(100px);
   }
@@ -273,12 +286,12 @@
   }
 
   h2 {
-    @include setFont(rem(40px), 40px, 700);
+    @include setFont(rem(40px), 1em, 700);
     letter-spacing: -1.14px;
     color: color(white);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(72px), 72px);
-      letter-spacing: -2.05px;
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
+      letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
     }
     @media (min-width: $w-desktop) {
       @include setFont(rem(88px), 88px);
@@ -291,9 +304,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: rem(40px);
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       margin-left: rem(2px);
-      margin-bottom: rem(60px);
+      margin-bottom: lerp_min($bp1, rem(40px), $w-tablet, rem(60px));
     }
     @media (min-width: $w-desktop) {
       margin-left: 0;
@@ -304,7 +317,7 @@
     display: flex;
     flex-direction: column;
     gap: rem(40px);
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       column-gap: rem(24px);
@@ -324,10 +337,18 @@
     repeat: no-repeat;
     position: bottom 97px left -359px;
   }
-  padding: rem(60px) rem(16px) rem(87px);
-  @media (min-width: $w-tablet) {
+  padding: {
+    top: rem(60px);
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(100px));
+    bottom: rem(87px);
+  }
+  @media (min-width: $bp1) {
     background-position: bottom 27px left -368px;
-    padding: rem(60px) rem(162px) rem(92px);
+    padding: {
+      top: rem(60px);
+      inline: lerp_min($bp1, rem(100px), $w-tablet, rem(162px));
+      bottom: rem(92px);
+    }
   }
   @media (min-width: $w-desktop) {
     background-position: bottom 47px left -205px;
@@ -340,13 +361,12 @@
   h2 {
     text-align: center;
     color: color(white);
-    @include setFont(rem(40px), 40px, 700);
+    @include setFont(rem(40px), 1em, 700);
     letter-spacing: -1.14px;
-    margin-bottom: em(20px, 40px);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(72px), 72px);
-      letter-spacing: -2.05px;
-      margin-bottom: em(20px, 72px);
+    margin-bottom: rem(20px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
+      letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
     }
     @media (min-width: $w-desktop) {
       @include setFont(rem(88px), 88px);
@@ -359,9 +379,10 @@
     @include setFont(rem(16px), 26px, 500);
     text-align: center;
     margin-bottom: em(50px, 16px);
-    @media (min-width: $w-tablet) {
-      @include setFont(rem(18px), 28px);
-      margin-bottom: em(48px, 18px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
+      line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
+      margin-bottom: lerp_max($bp1, rem(50px), $w-tablet, rem(48px));
     }
     @media (min-width: $w-desktop) {
       @include setFont(rem(18px), 28px);
@@ -387,17 +408,18 @@
       padding-left: rem(24px);
       margin-bottom: rem(32px);
       padding-bottom: rem(16px);
-      color: hsla(0, 0%, 100%, 0.5);
       font-family: inherit;
       @include setFont(rem(16px), 26px, 500);
       letter-spacing: -0.22px;
       resize: none;
+      text-transform: uppercase;
+      color: color(white);
       &:focus,
       &:active {
         outline: 0;
       }
       &::placeholder {
-        text-transform: uppercase;
+        color: hsla(0, 0%, 100%, 0.5);
       }
     }
     textarea {
@@ -414,9 +436,13 @@
 
 .footer {
   background-color: color(raisin-black);
-  padding: 0 rem(16px) rem(60px);
+  padding: {
+    top: 0;
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+    bottom: rem(60px);
+  }
   text-align: center;
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     padding: 0 rem(30px) rem(40px);
   }
   @media (min-width: $w-desktop) {
@@ -425,7 +451,7 @@
   & > div {
     padding-top: rem(39px);
     border-top: 1px solid color(white);
-    @media (min-width: $w-tablet) {
+    @media (min-width: $bp1) {
       display: flex;
       justify-content: space-between;
       align-items: center;

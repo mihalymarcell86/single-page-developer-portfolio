@@ -1,8 +1,10 @@
 $REM: 18;
 $breakpoint: undefined;
 
+$w-mobile: 375px;
 $w-tablet: 768px;
 $w-desktop: 1440px;
+$bp1: 650px;
 
 $colors: (
   chinese-black: hsl(0, 0%, 8%),

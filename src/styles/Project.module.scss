@@ -1,5 +1,10 @@
 @use "./utilities/global" as *;
 
+.project_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .image_wrapper {
   position: relative;
   margin-bottom: rem(20px);
@@ -19,6 +24,7 @@
     background-color: hsla(0, 0%, 0%, 0.75);
     opacity: 0;
     transition: opacity 0.3s ease;
+    cursor: pointer;
     &:hover {
       opacity: 1;
     }
@@ -53,6 +59,9 @@
 .view {
   & > a:first-of-type {
     margin-right: rem(30px);
+  }
+  @media (min-width: $bp1) {
+    margin-top: auto;
   }
   @media (min-width: $w-desktop) {
     display: none;

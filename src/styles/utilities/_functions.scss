@@ -113,6 +113,8 @@ $unit-table: (
     );
   } @else if unit($line-height) == "px" {
     line-height: math.div($line-height, convertUnit($font-size, px));
+  } @else if unit($line-height) == "em" or unit($line-height) == "rem" {
+    line-height: $line-height;
   } @else {
     @error "Invalid unit!";
   }

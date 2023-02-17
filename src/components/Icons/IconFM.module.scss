@@ -3,7 +3,7 @@
 .container {
   width: rem(19.68px);
   height: rem(17.6px);
-  @media (min-width: $w-tablet) {
+  @media (min-width: $bp1) {
     width: rem(24.6px);
     height: rem(22px);
   }

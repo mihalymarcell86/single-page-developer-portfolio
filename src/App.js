@@ -24,7 +24,7 @@ function App() {
         </menu>
         <picture className={scss.hero_picture}>
           <source srcSet={heroImgDesktop} media="(min-width: 1440px)" />
-          <source srcSet={heroImgTablet} media="(min-width: 768px)" />
+          <source srcSet={heroImgTablet} media="(min-width: 650px)" />
           <img
             src={heroImgMobile}
             alt="Adam Keyes headshot"
@@ -37,7 +37,7 @@ function App() {
         <section className={scss.introduction}>
           <h1>
             Nice to <br className={scss.linebreak} />
-            meet you! I'm <em>Adam Keyes</em>.
+            meet you! I'm <em>Adam&nbsp;Keyes</em>.
           </h1>
           <p>
             Based in the UK, I'm a front-end developer passionate about building

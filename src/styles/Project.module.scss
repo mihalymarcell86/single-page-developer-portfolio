@@ -13,7 +13,7 @@
 
 .overlay {
   display: none;
-  @media (min-width: $w-desktop) {
+  @media (min-width: $bp2) {
     position: absolute;
     inset: 0;
     display: flex;
@@ -40,7 +40,7 @@
 
 .langs {
   margin-bottom: rem(20px);
-  @media (min-width: $w-desktop) {
+  @media (min-width: $bp2) {
     margin-bottom: 0;
   }
 }
@@ -63,7 +63,7 @@
   @media (min-width: $bp1) {
     margin-top: auto;
   }
-  @media (min-width: $w-desktop) {
+  @media (min-width: $bp2) {
     display: none;
   }
 }

@@ -3,22 +3,21 @@
 .header {
   text-align: center;
   height: rem(363px);
-  margin-top: rem(20px);
-  margin-bottom: rem(40px);
+  margin: {
+    top: rem(20px);
+    bottom: rem(40px);
+  }
   @media (min-width: $bp1) {
     height: auto;
-    margin-inline: lerp_max($w-tablet, rem(30px), $w-desktop, rem(165px));
-    margin-top: rem(29px);
-    margin-bottom: rem(80px);
+    margin: {
+      top: lerp_clamp($w-tablet, rem(29px), $w-desktop, rem(39px));
+      left: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(165px));
+      right: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(194.51px));
+      bottom: lerp_clamp($w-tablet, rem(80px), $w-desktop, rem(127px));
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  @media (min-width: $w-desktop) {
-    margin-top: rem(39px);
-    margin-bottom: rem(127px);
-    margin-left: rem(165px);
-    margin-right: rem(194.51px);
   }
 }
 
@@ -54,22 +53,18 @@
   translate: -50%;
   z-index: -1;
   @media (min-width: $bp1) {
-    right: lerp_max($w-tablet, 0rem, $w-desktop, rem(165px));
+    right: lerp_clamp($w-tablet, 0rem, $w-desktop, rem(165px));
     left: auto;
     translate: none;
-  }
-  @media (min-width: $w-desktop) {
-    right: rem(165px);
   }
 }
 
 .hero_img {
   width: rem(174px);
   @media (min-width: $bp1) {
-    width: rem(322px);
-  }
-  @media (min-width: $w-desktop) {
-    width: rem(445px);
+    width: lerp_clamp($w-tablet, rem(322px), $w-desktop, rem(445px));
+    height: lerp_clamp($w-tablet, rem(600px), $w-desktop, rem(720px));
+    object-fit: cover;
   }
 }
 
@@ -78,17 +73,19 @@
   text-align: center;
   margin-bottom: rem(80px);
   @media (min-width: $bp1) {
-    margin-left: lerp_max($w-tablet, rem(32px), $w-desktop, rem(165px));
-    margin-bottom: rem(60px);
+    margin: {
+      left: lerp_clamp($w-tablet, rem(32px), $w-desktop, rem(165px));
+      right: 0;
+      bottom: lerp_clamp($w-tablet, rem(60px), $w-desktop, rem(219px));
+    }
     text-align: left;
     max-width: lerp($bp1, rem(350px), $w-tablet, rem(445px));
     min-height: rem(447px);
   }
+  @media (min-width: $w-tablet) {
+    max-width: lerp_min($w-tablet, rem(445px), $w-desktop, rem(706px));
+  }
   @media (min-width: $w-desktop) {
-    margin-left: rem(165px);
-    margin-bottom: rem(219px);
-    margin-right: 0;
-    max-width: rem(706px);
     min-height: auto;
   }
   &::before {
@@ -125,20 +122,20 @@
     @include setFont(rem(40px), 1em, 700);
     letter-spacing: -1.13636px;
     color: color(white);
-    margin-inline: auto; //!
+    margin-inline: auto;
     margin-bottom: em(24px, 40px);
-    max-width: rem(350px); //!
+    max-width: rem(350px);
 
     @media (min-width: $bp1) {
       font-size: lerp_min($bp1, rem(50px), $w-tablet, rem(72px));
       letter-spacing: -2.05px;
-      max-width: none; //!
+      max-width: none;
       margin-bottom: em(66px, 72px);
     }
-    @media (min-width: $w-desktop) {
-      @include setFont(rem(88px), 88px);
-      letter-spacing: -2.5px;
-      margin-bottom: em(43px, 88px);
+    @media (min-width: $w-tablet) {
+      font-size: lerp_min($w-tablet, rem(72px), $w-desktop, rem(88px));
+      letter-spacing: lerp_max($w-tablet, -2.05px, $w-desktop, -2.5px);
+      margin-bottom: lerp_max($w-tablet, rem(66px), $w-desktop, rem(43px));
     }
   }
 
@@ -154,10 +151,7 @@
     position: relative;
     @media (min-width: $bp1) {
       display: inline-block;
-      margin-top: em(11px, 72px);
-    }
-    @media (min-width: $w-desktop) {
-      margin-top: 0;
+      margin-top: lerp_clamp($w-tablet, rem(11px), $w-desktop, rem(0px));
     }
     &::after {
       content: "";
@@ -168,29 +162,28 @@
       bottom: rem(2px);
       left: 0;
       @media (min-width: $bp1) {
-        bottom: rem(-5px);
+        bottom: lerp_max($bp1, rem(-5px), $w-desktop, rem(-6px));
         height: lerp_min($bp1, 5px, $w-tablet, 6px);
       }
       @media (min-width: $w-desktop) {
+        //inconsistency in mockup
         z-index: -1;
-        bottom: rem(-6px);
       }
     }
   }
   p {
     @include setFont(rem(16px), 26px, 500);
     margin-bottom: em(24px, 16px);
-    max-width: rem(500px); //!
-    margin-inline: auto; //!
+    max-width: rem(500px);
+    margin-inline: auto;
     @media (min-width: $bp1) {
+      margin-inline: 0;
       font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
       line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
-      max-width: none;
-      margin-bottom: em(34px, 18px);
+      max-width: rem(500px);
+      margin-bottom: lerp_clamp($w-tablet, rem(34px), $w-desktop, rem(66px));
     }
     @media (min-width: $w-desktop) {
-      margin-inline: 0; //!
-      margin-bottom: em(66px, 18px);
       max-width: rem(445px);
     }
   }
@@ -201,16 +194,16 @@
   border-bottom: 1px solid color(white);
   padding-block: rem(40px);
   margin-inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+  margin-bottom: rem(80px);
   display: flex;
   flex-direction: column;
   gap: rem(24px);
   align-items: center;
   text-align: center;
-  margin-bottom: rem(80px);
   position: relative;
 
   @media (min-width: $bp1) {
-    margin-inline: rem(30px);
+    margin-inline: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(165px));
     margin-bottom: rem(100px);
     padding-top: rem(50px);
     padding-bottom: 0;
@@ -223,8 +216,7 @@
     column-gap: rem(7px);
   }
 
-  @media (min-width: $w-desktop) {
-    margin-inline: rem(165px);
+  @media (min-width: $bp2) {
     margin-bottom: rem(140px);
     padding-top: rem(72px);
     padding-inline: rem(5px);
@@ -245,7 +237,7 @@
       right: -362px;
       bottom: -65px;
     }
-    @media (min-width: $w-desktop) {
+    @media (min-width: $bp2) {
       right: -404px;
       bottom: -55px;
     }
@@ -274,15 +266,15 @@
 }
 
 .projects {
-  margin-inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
-  margin-bottom: rem(80px);
-  @media (min-width: $bp1) {
-    margin-inline: rem(30px) rem(30px);
-    margin-bottom: rem(100px);
+  margin: {
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+    bottom: rem(80px);
   }
-  @media (min-width: $w-desktop) {
-    margin-inline: rem(165px);
-    margin-bottom: rem(139px);
+  @media (min-width: $bp1) {
+    margin: {
+      inline: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(165px));
+      bottom: lerp_clamp($w-tablet, rem(100px), $w-desktop, rem(139px));
+    }
   }
 
   h2 {
@@ -293,9 +285,9 @@
       font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
       letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
     }
-    @media (min-width: $w-desktop) {
-      @include setFont(rem(88px), 88px);
-      letter-spacing: -2.5px;
+    @media (min-width: $w-tablet) {
+      font-size: lerp_min($w-tablet, rem(72px), $w-desktop, rem(88px));
+      letter-spacing: lerp_max($w-tablet, -2.05px, $w-desktop, -2.5px);
     }
   }
 
@@ -308,9 +300,9 @@
       margin-left: rem(2px);
       margin-bottom: lerp_min($bp1, rem(40px), $w-tablet, rem(60px));
     }
-    @media (min-width: $w-desktop) {
-      margin-left: 0;
-      margin-bottom: rem(80px);
+    @media (min-width: $w-tablet) {
+      margin-bottom: lerp_min($w-tablet, rem(60px), $w-desktop, rem(80px));
+      margin-left: lerp_max($w-tablet, rem(2px), $w-desktop, rem(0px));
     }
   }
   & > div {
@@ -323,9 +315,9 @@
       column-gap: rem(24px);
       row-gap: rem(60px);
     }
-    @media (min-width: $w-desktop) {
-      column-gap: rem(30px);
-      row-gap: rem(69px);
+    @media (min-width: $w-tablet) {
+      column-gap: lerp_min($w-tablet, rem(24px), $w-desktop, rem(30px));
+      row-gap: lerp_min($w-tablet, rem(60px), $w-desktop, rem(69px));
     }
   }
 }
@@ -349,13 +341,21 @@
       inline: lerp_min($bp1, rem(100px), $w-tablet, rem(162px));
       bottom: rem(92px);
     }
+    & > * {
+      max-width: 650px;
+      margin-inline: auto;
+    }
   }
-  @media (min-width: $w-desktop) {
+  @media (min-width: $bp2) {
     background-position: bottom 47px left -205px;
     padding: rem(84px) rem(165px) rem(92px);
     display: flex;
     justify-content: space-between;
-    gap: rem(220px);
+    gap: lerp_min($bp2, rem(100px), $w-desktop, rem(220px));
+    & > * {
+      max-width: none;
+      margin-inline: 0;
+    }
   }
 
   h2 {
@@ -368,10 +368,12 @@
       font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
       letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
     }
-    @media (min-width: $w-desktop) {
-      @include setFont(rem(88px), 88px);
-      letter-spacing: -2.5px;
-      margin-bottom: em(36px, 88px);
+    @media (min-width: $w-tablet) {
+      font-size: lerp_min($w-tablet, rem(72px), $w-desktop, rem(88px));
+      letter-spacing: lerp_max($w-tablet, -2.05px, $w-desktop, -2.5px);
+      margin-bottom: lerp_min($w-tablet, rem(20px), $w-desktop, rem(36px));
+    }
+    @media (min-width: $bp2) {
       text-align: left;
     }
   }
@@ -384,8 +386,7 @@
       line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
       margin-bottom: lerp_max($bp1, rem(50px), $w-tablet, rem(48px));
     }
-    @media (min-width: $w-desktop) {
-      @include setFont(rem(18px), 28px);
+    @media (min-width: $bp2) {
       margin-bottom: 0;
       text-align: left;
       max-width: rem(445px);
@@ -396,7 +397,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: $w-desktop) {
+    @media (min-width: $bp2) {
       width: div(445, 1440) * 100vw;
     }
 
@@ -445,9 +446,13 @@
   @media (min-width: $bp1) {
     padding: 0 rem(30px) rem(40px);
   }
-  @media (min-width: $w-desktop) {
-    padding: 0 rem(165px) rem(92px);
+  @media (min-width: $w-tablet) {
+    padding: {
+      inline: lerp_min($w-tablet, rem(30px), $bp2, rem(165px));
+      bottom: lerp_min($w-tablet, rem(40px), $bp2, rem(92px));
+    }
   }
+
   & > div {
     padding-top: rem(39px);
     border-top: 1px solid color(white);
@@ -456,9 +461,9 @@
       justify-content: space-between;
       align-items: center;
       padding-top: rem(30px);
-    }
-    @media (min-width: $w-desktop) {
-      padding-top: rem(47px);
+      @media (min-width: $w-tablet) {
+        padding-top: lerp_min($w-tablet, rem(30px), $bp2, rem(47px));
+      }
     }
   }
 }

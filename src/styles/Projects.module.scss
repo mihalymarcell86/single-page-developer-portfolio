@@ -1,0 +1,58 @@
+@use "./utilities/global" as *;
+
+.projects {
+  margin: {
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+    bottom: rem(80px);
+  }
+  @media (min-width: $bp1) {
+    margin: {
+      inline: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(165px));
+      bottom: lerp_clamp($w-tablet, rem(100px), $w-desktop, rem(139px));
+    }
+  }
+
+  h2 {
+    @include setFont(rem(40px), 1em, 700);
+    letter-spacing: -1.14px;
+    color: color(white);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
+      letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
+    }
+    @media (min-width: $w-tablet) {
+      font-size: lerp_min($w-tablet, rem(72px), $w-desktop, rem(88px));
+      letter-spacing: lerp_max($w-tablet, -2.05px, $w-desktop, -2.5px);
+    }
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: rem(40px);
+    @media (min-width: $bp1) {
+      margin-left: rem(2px);
+      margin-bottom: lerp_min($bp1, rem(40px), $w-tablet, rem(60px));
+    }
+    @media (min-width: $w-tablet) {
+      margin-bottom: lerp_min($w-tablet, rem(60px), $w-desktop, rem(80px));
+      margin-left: lerp_max($w-tablet, rem(2px), $w-desktop, rem(0px));
+    }
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: rem(40px);
+    @media (min-width: $bp1) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(24px);
+      row-gap: rem(60px);
+    }
+    @media (min-width: $w-tablet) {
+      column-gap: lerp_min($w-tablet, rem(24px), $w-desktop, rem(30px));
+      row-gap: lerp_min($w-tablet, rem(60px), $w-desktop, rem(69px));
+    }
+  }
+}

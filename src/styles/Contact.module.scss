@@ -1,0 +1,114 @@
+@use "./utilities/global" as *;
+
+.contact {
+  background: {
+    color: color(raisin-black);
+    image: url("../assets/images/pattern-rings.svg");
+    repeat: no-repeat;
+    position: bottom 97px left -359px;
+  }
+  padding: {
+    top: rem(60px);
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(100px));
+    bottom: rem(87px);
+  }
+  @media (min-width: $bp1) {
+    background-position: bottom 27px left -368px;
+    padding: {
+      top: rem(60px);
+      inline: lerp_min($bp1, rem(100px), $w-tablet, rem(162px));
+      bottom: rem(92px);
+    }
+    & > * {
+      max-width: 650px;
+      margin-inline: auto;
+    }
+  }
+  @media (min-width: $bp2) {
+    background-position: bottom 47px left -205px;
+    padding: rem(84px) rem(165px) rem(92px);
+    display: flex;
+    justify-content: space-between;
+    gap: lerp_min($bp2, rem(100px), $w-desktop, rem(220px));
+    & > * {
+      max-width: none;
+      margin-inline: 0;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    color: color(white);
+    @include setFont(rem(40px), 1em, 700);
+    letter-spacing: -1.14px;
+    margin-bottom: rem(20px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(40px), $w-tablet, rem(72px));
+      letter-spacing: lerp_min($bp1, -1.14px, $w-tablet, -2.05px);
+    }
+    @media (min-width: $w-tablet) {
+      font-size: lerp_min($w-tablet, rem(72px), $w-desktop, rem(88px));
+      letter-spacing: lerp_max($w-tablet, -2.05px, $w-desktop, -2.5px);
+      margin-bottom: lerp_min($w-tablet, rem(20px), $w-desktop, rem(36px));
+    }
+    @media (min-width: $bp2) {
+      text-align: left;
+    }
+  }
+  p {
+    @include setFont(rem(16px), 26px, 500);
+    text-align: center;
+    margin-bottom: em(50px, 16px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
+      line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
+      margin-bottom: lerp_max($bp1, rem(50px), $w-tablet, rem(48px));
+    }
+    @media (min-width: $bp2) {
+      margin-bottom: 0;
+      text-align: left;
+      max-width: rem(445px);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $bp2) {
+      width: div(445, 1440) * 100vw;
+    }
+
+    input,
+    textarea {
+      border: 0;
+      background-color: transparent;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+      padding-left: rem(24px);
+      margin-bottom: rem(32px);
+      padding-bottom: rem(16px);
+      font-family: inherit;
+      @include setFont(rem(16px), 26px, 500);
+      letter-spacing: -0.22px;
+      resize: none;
+      text-transform: uppercase;
+      color: color(white);
+      &:focus,
+      &:active {
+        outline: 0;
+      }
+      &::placeholder {
+        color: hsla(0, 0%, 100%, 0.5);
+      }
+    }
+    textarea {
+      min-height: rem(107px);
+    }
+    button {
+      border: 0;
+      background-color: transparent;
+      text-align: right;
+      font-family: inherit;
+    }
+  }
+}

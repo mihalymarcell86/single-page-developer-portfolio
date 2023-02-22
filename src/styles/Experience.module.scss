@@ -1,0 +1,77 @@
+@use "./utilities/global" as *;
+
+.experience {
+  border-top: 1px solid color(white);
+  border-bottom: 1px solid color(white);
+  padding-block: rem(40px);
+  margin-inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+  margin-bottom: rem(80px);
+  display: flex;
+  flex-direction: column;
+  gap: rem(24px);
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  @media (min-width: $bp1) {
+    margin-inline: lerp_clamp($w-tablet, rem(30px), $w-desktop, rem(165px));
+    margin-bottom: rem(100px);
+    padding-top: rem(50px);
+    padding-bottom: 0;
+    padding-inline: rem(2px) rem(9px);
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    row-gap: rem(52px);
+    column-gap: rem(7px);
+  }
+
+  @media (min-width: $bp2) {
+    margin-bottom: rem(140px);
+    padding-top: rem(72px);
+    padding-inline: rem(5px);
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: rem(58px);
+    column-gap: rem(30px);
+    & > div:nth-child(3n) {
+      padding-left: rem(5px);
+    }
+  }
+
+  &::after {
+    content: url("../assets/images/pattern-rings.svg");
+    position: absolute;
+    bottom: -71px;
+    right: -358px;
+    @media (min-width: $bp1) {
+      right: -362px;
+      bottom: -65px;
+    }
+    @media (min-width: $bp2) {
+      right: -404px;
+      bottom: -55px;
+    }
+  }
+
+  h3 {
+    @include setFont(rem(32px), 40px, 700);
+    letter-spacing: -1px;
+    color: color(white);
+    margin-bottom: em(1px, 32px);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(32px), $w-tablet, rem(48px));
+      line-height: lerp_min($bp1, 40px, $w-tablet, 56px);
+      letter-spacing: lerp_min($bp1, -1px, $w-tablet, -1.5px);
+      margin-bottom: lerp_min($bp1, rem(1px), $w-tablet, rem(14px));
+    }
+  }
+
+  p {
+    @include setFont(rem(16px), 26px, 500);
+    @media (min-width: $bp1) {
+      font-size: lerp_min($bp1, rem(16px), $w-tablet, rem(18px));
+      line-height: lerp_min($bp1, 26px, $w-tablet, 28px);
+    }
+  }
+}

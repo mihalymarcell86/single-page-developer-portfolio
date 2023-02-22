@@ -1,0 +1,38 @@
+@use "./utilities/global" as *;
+
+.footer {
+  background-color: color(raisin-black);
+  padding: {
+    top: 0;
+    inline: lerp_max($w-mobile, rem(16px), $bp1, rem(30px));
+    bottom: rem(60px);
+  }
+  text-align: center;
+  @media (min-width: $bp1) {
+    padding: 0 rem(30px) rem(40px);
+  }
+  @media (min-width: $w-tablet) {
+    padding: {
+      inline: lerp_min($w-tablet, rem(30px), $bp2, rem(165px));
+      bottom: lerp_min($w-tablet, rem(40px), $bp2, rem(92px));
+    }
+  }
+
+  & > div {
+    padding-top: rem(39px);
+    border-top: 1px solid color(white);
+    @media (min-width: $bp1) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: rem(30px);
+      @media (min-width: $w-tablet) {
+        padding-top: lerp_min($w-tablet, rem(30px), $bp2, rem(47px));
+      }
+    }
+  }
+}
+
+.logo {
+  composes: logo from "./Header.module.scss";
+}

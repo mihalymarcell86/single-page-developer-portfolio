@@ -52,3 +52,15 @@
     height: rem(18.93px);
   }
 }
+
+.logo {
+  color: color(white);
+  @include setFont(rem(24px), 32px, 700);
+  letter-spacing: -0.333333px;
+  margin-bottom: em(20px, 24px);
+  @media (min-width: $bp1) {
+    margin-bottom: 0px;
+    font-size: rem(32px);
+    letter-spacing: -0.44px;
+  }
+}

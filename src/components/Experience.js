@@ -1,32 +1,41 @@
 import scss from "../styles/Experience.module.scss";
 
 export default function Experience() {
+  const experience = [
+    {
+      field: "HTML",
+      years: 4,
+    },
+    {
+      field: "CSS",
+      years: 4,
+    },
+    {
+      field: "Javascript",
+      years: 4,
+    },
+    {
+      field: "Accessibility",
+      years: 4,
+    },
+    {
+      field: "React",
+      years: 3,
+    },
+    {
+      field: "Sass",
+      years: 3,
+    },
+  ];
+
   return (
     <section aria-label="experience" className={scss.experience}>
-      <div>
-        <h3>HTML</h3>
-        <p>4 Years Experience</p>
-      </div>
-      <div>
-        <h3>CSS</h3>
-        <p>4 Years Experience</p>
-      </div>
-      <div>
-        <h3>Javascript</h3>
-        <p>4 Years Experience</p>
-      </div>
-      <div>
-        <h3>Accessibility</h3>
-        <p>4 Years Experience</p>
-      </div>
-      <div>
-        <h3>React</h3>
-        <p>3 Years Experience</p>
-      </div>
-      <div>
-        <h3>Sass</h3>
-        <p>3 Years Experience</p>
-      </div>
+      {experience.map((exp, index) => (
+        <div key={index}>
+          <h3>{exp.field}</h3>
+          <p>{exp.years} Years Experience</p>
+        </div>
+      ))}
     </section>
   );
 }

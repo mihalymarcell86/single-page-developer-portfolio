@@ -4,6 +4,32 @@ import Link from "./UI/Link";
 import scss from "../styles/Projects.module.scss";
 
 export default function Projects() {
+  const projects = [
+    {
+      title: "Design portfolio",
+      langs: "HTML CSS",
+    },
+    {
+      title: "E-learning landing page",
+      langs: "HTML CSS",
+    },
+    {
+      title: "Todo web app",
+      langs: "HTML CSS JavaScript",
+    },
+    {
+      title: "Entertainment web app",
+      langs: "HTML CSS JavaScript",
+    },
+    {
+      title: "Memory Game",
+      langs: "HTML CSS JavaScript",
+    },
+    {
+      title: "Art gallery showcase",
+      langs: "HTML CSS JavaScript",
+    },
+  ];
   return (
     <section className={scss.projects}>
       <header>
@@ -11,32 +37,14 @@ export default function Projects() {
         <Link href="#contact">Contact me</Link>
       </header>
       <div>
-        <Project nr={1} title="Design portfolio" langs="HTML CSS"></Project>
-        <Project
-          nr={2}
-          title="E-learning landing page"
-          langs="HTML CSS"
-        ></Project>
-        <Project
-          nr={3}
-          title="Todo web app"
-          langs="HTML CSS JavaScript"
-        ></Project>
-        <Project
-          nr={4}
-          title="Entertainment web app"
-          langs="HTML CSS JavaScript"
-        ></Project>
-        <Project
-          nr={5}
-          title="Memory Game"
-          langs="HTML CSS JavaScript"
-        ></Project>
-        <Project
-          nr={6}
-          title="Art gallery showcase"
-          langs="HTML CSS JavaScript"
-        ></Project>
+        {projects.map((project, index) => (
+          <Project
+            key={index}
+            nr={index + 1}
+            title={project.title}
+            langs={project.langs}
+          />
+        ))}
       </div>
     </section>
   );

@@ -21,31 +21,6 @@
   }
 }
 
-.logo {
-  color: color(white);
-  @include setFont(rem(24px), 32px, 700);
-  letter-spacing: -0.333333px;
-  margin-bottom: em(20px, 24px);
-  @media (min-width: $bp1) {
-    margin-bottom: 0px;
-    font-size: rem(32px);
-    letter-spacing: -0.44px;
-  }
-}
-
-.social_media {
-  display: flex;
-  gap: rem(25.6px);
-  justify-content: center;
-  align-items: center;
-  height: rem(20px);
-  font-size: 0;
-  @media (min-width: $bp1) {
-    height: rem(25px);
-    gap: rem(32px);
-  }
-}
-
 .hero_picture {
   position: absolute;
   top: 0;

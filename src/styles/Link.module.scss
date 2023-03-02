@@ -7,4 +7,18 @@
   letter-spacing: 2.28571px;
   height: rem(36px);
   border-bottom: 2px solid color(eucalyptus);
+  &:any-link {
+    color: transparent;
+    background: {
+      color: color(white);
+      image: linear-gradient(to right, color(eucalyptus), color(eucalyptus));
+      clip: text;
+      repeat: no-repeat;
+      size: 0% 100%;
+    }
+    transition: background-size 0.2s linear;
+  }
+  &:hover {
+    background-size: 100% 100%;
+  }
 }

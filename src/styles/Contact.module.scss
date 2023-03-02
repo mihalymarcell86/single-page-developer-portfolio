@@ -83,16 +83,13 @@
     textarea {
       border: 0;
       background-color: transparent;
-      border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
-      padding-left: rem(24px);
-      margin-bottom: rem(32px);
-      padding-bottom: rem(16px);
       font-family: inherit;
       @include setFont(rem(16px), 26px, 500);
       letter-spacing: -0.22px;
       resize: none;
       text-transform: uppercase;
       color: color(white);
+      width: 100%;
       &:focus,
       &:active {
         outline: 0;
@@ -107,8 +104,12 @@
     button {
       border: 0;
       background-color: transparent;
-      text-align: right;
       font-family: inherit;
+      align-self: flex-end;
+      &:focus,
+      &:active {
+        outline: 0;
+      }
     }
   }
 }

@@ -12,7 +12,7 @@ export default function Contact() {
     nameState.isValid && emailState.isValid && messageState.isValid;
 
   return (
-    <section className={scss.contact}>
+    <section className={scss.contact} id="contact">
       <div>
         <h2>Contact</h2>
         <p>
@@ -30,10 +30,8 @@ export default function Contact() {
         <Input state={messageState} customProps={messageProps}>
           <textarea placeholder="Message" spellCheck={false}></textarea>
         </Input>
-        <button type="button">
-          <Link href="#" disabled={!formIsValid}>
-            Send message
-          </Link>
+        <button type="button" disabled={!formIsValid}>
+          <Link href="#">Send message</Link>
         </button>
       </form>
     </section>

@@ -125,6 +125,7 @@
     left: 50%;
     top: 50%;
     translate: -50% -50%;
+    width: 80%;
 
     h1 {
       margin-bottom: 1.5em;
@@ -133,14 +134,16 @@
       text-decoration: underline;
       text-decoration-color: color(eucalyptus);
       text-underline-offset: 15px;
+      text-align: center;
     }
 
     a[href^="mailto:"] {
       text-decoration: underline;
     }
 
-    text-align: center;
-    width: 80%;
+    p {
+      text-align: center;
+    }
   }
 
   .error {

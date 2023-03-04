@@ -32,7 +32,7 @@ export default function Experience() {
     <section aria-label="experience" className={scss.experience}>
       {experience.map((exp, index) => (
         <div key={index}>
-          <h3>{exp.field}</h3>
+          <h1>{exp.field}</h1>
           <p>{exp.years} Years Experience</p>
         </div>
       ))}

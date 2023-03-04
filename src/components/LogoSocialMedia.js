@@ -4,7 +4,7 @@ export default function LogoSocialMedia() {
   return (
     <>
       <p className={scss.logo}>adamkeyes</p>
-      <menu className={scss.social_media}>
+      <div className={scss.social_media}>
         <a
           href="https://www.github.com"
           target="_blank"
@@ -17,9 +17,9 @@ export default function LogoSocialMedia() {
             width="25"
             height="24"
             role="img"
-            aria-labelledby="github_title"
+            aria-label="Github"
           >
-            <title id="github_title">Github</title>
+            <title>Github</title>
             <path
               fill="currentColor"
               fillRule="evenodd"
@@ -39,9 +39,9 @@ export default function LogoSocialMedia() {
             width="26"
             height="23"
             role="img"
-            aria-labelledby="fm_title"
+            aria-label="Frontend Mentor"
           >
-            <title id="fm_title">Frontend Mentor</title>
+            <title>Frontend Mentor</title>
             <path
               fill="currentColor"
               d="M13.084.23a.751.751 0 0 0-.736.75v14.267a.75.75 0 1 0 1.5 0V.98a.75.75 0 0 0-.763-.75ZM24.44 4.504a.752.752 0 0 0-.284.064l-6.44 2.875a.752.752 0 0 0 0 1.37l6.44 2.884a.75.75 0 0 0 .612-1.369L19.861 8.13l4.907-2.191a.753.753 0 0 0 .38-.99.752.752 0 0 0-.708-.444ZM1.371 9.663a.752.752 0 0 0-.74.938C2.41 17.447 8.603 22.23 15.685 22.23a.75.75 0 1 0 0-1.501A14.053 14.053 0 0 1 2.083 10.225a.75.75 0 0 0-.712-.561v-.001Z"
@@ -60,9 +60,9 @@ export default function LogoSocialMedia() {
             width="25"
             height="24"
             role="img"
-            aria-labelledby="linkedin_title"
+            aria-label="LinkedIn"
           >
-            <title id="linkedin_title">LinkedIn</title>
+            <title>LinkedIn</title>
             <path
               fill="currentColor"
               fillRule="evenodd"
@@ -82,16 +82,16 @@ export default function LogoSocialMedia() {
             height="20"
             viewBox="0 0 24 20"
             role="img"
-            aria-labelledby="twitter_title"
+            aria-label="title"
           >
-            <title id="twitter_title"></title>
+            <title>Twitter</title>
             <path
               fill="currentColor"
               d="M23.492 2.705a9.563 9.563 0 0 1-2.742.751 4.788 4.788 0 0 0 2.1-2.643 9.536 9.536 0 0 1-3.033 1.159 4.778 4.778 0 0 0-8.14 4.357 13.564 13.564 0 0 1-9.844-4.99 4.774 4.774 0 0 0-.646 2.4 4.778 4.778 0 0 0 2.124 3.977 4.765 4.765 0 0 1-2.163-.598v.061a4.778 4.778 0 0 0 3.832 4.684 4.812 4.812 0 0 1-2.158.082 4.78 4.78 0 0 0 4.462 3.316 9.584 9.584 0 0 1-5.932 2.045c-.38 0-.762-.022-1.14-.067a13.508 13.508 0 0 0 7.32 2.146c8.787 0 13.59-7.277 13.59-13.589 0-.205-.004-.412-.013-.617a9.71 9.71 0 0 0 2.381-2.471l.002-.003Z"
             />
           </svg>
         </a>
-      </menu>
+      </div>
     </>
   );
 }

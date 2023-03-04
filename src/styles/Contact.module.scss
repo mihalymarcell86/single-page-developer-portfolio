@@ -71,6 +71,10 @@
     }
   }
 
+  .form_container {
+    position: relative;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -110,6 +114,38 @@
       &:active {
         outline: 0;
       }
+    }
+  }
+  .invisible {
+    visibility: hidden;
+  }
+
+  .response {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+
+    h1 {
+      margin-bottom: 1.5em;
+      color: color(white);
+      text-transform: uppercase;
+      text-decoration: underline;
+      text-decoration-color: color(eucalyptus);
+      text-underline-offset: 15px;
+    }
+
+    a[href^="mailto:"] {
+      text-decoration: underline;
+    }
+
+    text-align: center;
+    width: 80%;
+  }
+
+  .error {
+    h1 {
+      text-decoration-color: color(bittersweet);
     }
   }
 }

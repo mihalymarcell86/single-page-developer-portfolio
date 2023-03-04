@@ -2,12 +2,14 @@ import { useState } from "react";
 import validator from "validator";
 
 function useValidateInput(options) {
-  const [state, setState] = useState({
+  const defaultState = {
     wasTouched: false,
     isValid: false,
     value: "",
     error: "",
-  });
+  };
+
+  const [state, setState] = useState(defaultState);
 
   function checkValidity(string) {
     if (validator.isEmpty(string)) {
@@ -42,12 +44,23 @@ function useValidateInput(options) {
     if (state.wasTouched) checkValidity(value);
   }
 
+  function clear() {
+    setState((prev) => defaultState);
+  }
+
   return [
     state,
     {
       onBlur: handleBlur,
       onChange: handleChange,
       value: state.value,
+    },
+    {
+      clear: clear,
+      checkValidity: () => {
+        checkValidity(state.value);
+        setState((prev) => ({ ...prev, wasTouched: true }));
+      },
     },
   ];
 }

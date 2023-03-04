@@ -25,7 +25,8 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus-within {
       opacity: 1;
     }
   }

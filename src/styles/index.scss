@@ -35,13 +35,16 @@ body {
   height: 100%;
 }
 
-a {
-  &:any-link {
-    color: color(white);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  &:hover {
-    color: color(eucalyptus);
+//lowering specificity
+@layer links {
+  a {
+    &:any-link {
+      color: color(white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    &:hover {
+      color: color(eucalyptus);
+    }
   }
 }

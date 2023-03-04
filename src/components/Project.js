@@ -6,10 +6,10 @@ function Project({ nr, title, langs }) {
     <div className={scss.project_wrapper}>
       <div>
         <div className={scss.image_wrapper}>
-          <menu className={scss.overlay}>
+          <div className={scss.overlay}>
             <Link href="#">View project</Link>
             <Link href="#">View code</Link>
-          </menu>
+          </div>
           <picture>
             <source
               srcSet={require(`../assets/images/thumbnail-project-${nr}-large.webp`)}
@@ -30,10 +30,10 @@ function Project({ nr, title, langs }) {
           ))}
         </div>
       </div>
-      <menu className={scss.view}>
+      <div className={scss.view}>
         <Link href="#">View project</Link>
         <Link href="#">View code</Link>
-      </menu>
+      </div>
     </div>
   );
 }

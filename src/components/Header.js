@@ -16,7 +16,6 @@ export default function Header() {
         <img
           src={heroImgMobile}
           alt="Adam Keyes headshot"
-          type="img/webp"
           className={scss.hero_img}
         />
       </picture>
